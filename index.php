@@ -3,14 +3,35 @@ error_reporting(E_ALL);
 require_once 'inc/lib.inc.php';
 set_error_handler("myError");
 require_once 'inc/data.inc.php';
-
+$title = 'Сайт нашей школы';
+$header = "$welcome , Гость!";
+$id = strtolower(strip_tags(trim($_GET['id'])));
+switch ($id) {
+    case 'about':
+        $title = 'О сайте';
+        $header = '';
+        break;
+    case 'contact':
+        $title = 'Контакты';
+        $header = 'Обратная связь';
+        break;
+    case 'table':
+        $title = 'Таблица умножения';
+        $header = 'Таблица умножения';
+        break;
+    case 'calc':
+        $title = 'Он-лайн калькулятор';
+        $header = 'Калькулятор';
+        break;
+        
+}
 
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Сайт нашей школы</title>
+    <title><?= $title ?></title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -27,11 +48,27 @@ require_once 'inc/data.inc.php';
 
     <div id="content">
         <!-- Заголовок -->
-        <h1><?= $welcome ?>, Гость!</h1>
+        <h1><?= $header ?></h1>
         <!-- Заголовок -->
         <!-- Область основного контента -->
         <?php
-            require_once 'inc/index.inc.php';
+    switch ($id) {
+    case 'about':
+        require_once 'about.php';
+        break;
+    case 'contact':
+        require_once 'contact.php';
+        break;
+    case 'table':
+        require_once 'table.php';
+        break;
+    case 'calc':
+        require_once 'calc.php';
+        break;
+    default:
+        require_once 'inc/index.inc.php';            
+    }
+        
         ?>
         <!-- Область основного контента -->
     </div>
