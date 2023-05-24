@@ -22,5 +22,5 @@
       <br />
       <input type='submit' value='Считать'>
     </form>
-   
+   <?= calc($num1, $num2, $operator); ?>
     <!-- Область основного контента -->
