@@ -1,4 +1,11 @@
- <!-- Область основного контента -->
+    <?php 
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $num1 = (int) $_POST['num1'];
+            $num2 = (int) $_POST['num2'];
+            $oerator = strip_tags(trim($_POST['operator']));
+        }
+    ?>
+<!-- Область основного контента -->
     <form action=''>
       <label>Число 1:</label>
       <br />
