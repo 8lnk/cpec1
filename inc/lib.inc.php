@@ -1,5 +1,5 @@
-<?php
-    function drawMenu($menu, $vertical = true){
+<?php    
+function drawMenu($menu, $vertical = true){
        if(!is_array($menu)){
             return false;
         }
@@ -50,3 +50,53 @@
             echo "\n  ==", E_USER_NOTICE."\n";
         }
     }
+
+    function calc($num1, $num2, $operator){
+        $result = "";
+        if(!is_int($num1) || !is_int($num2)){
+            $result = "Вычисления производятся только с целыми числами";
+            return $result;
+        } 
+        if(!($operator == '+' || $operator == '-' || $operator == '*' || $operator == '/') ){
+            $result = 'Вы должны использовать один из этих операторов: "+, -, *, /"!';
+            return $result;
+        switch ($operator) {
+            case '+':
+                $result = 'Результат $num1 + $num2 = ' . $num1 + $num2;
+                break;
+            case '-':
+                $result = 'Результат $num1 - $num2 = ' . $num1 - $num2;
+                break;
+            case '*':
+                $result = 'Результат $num1 * $num2 = ' . $num1 * $num2;
+                break;
+            case '/':
+                if($num2 == 0){
+                   $result = 'На "0" делить нельзя';
+                   return $result; 
+                }
+                $result = 'Результат $num1 / $num2 = ' . $num1 / $num2;
+                break;
+        }
+            return $result;        
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
