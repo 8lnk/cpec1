@@ -43,7 +43,7 @@ function drawTable($cols = 5, $rows = 5, $color = 'yellow')
 function myError($ernum, $ermsg, $errfile, $errline)
 {
 
-    echo $ernum . ' ', $ermsg . ' ', $errline . ' ', "\n";
+    // echo $ernum . ' ', $ermsg . ' ', $errline . ' ', "\n";
 
     switch ($ernum) {
 
@@ -66,20 +66,20 @@ function calc($num1, $num2, $operator)
     }
     switch ($operator) {
         case '+':
-            $result = "Результат $num1 + $num2 = " . $num1 + $num2;
+            $result = "Результат $num1 + $num2 = " . ($num1 + $num2);
             break;
         case '-':
-            $result = 'Результат $num1 - $num2 = ' . $num1 - $num2;
+            $result = "Результат $num1 - $num2 = " . ($num1 - $num2);
             break;
         case '*':
-            $result = 'Результат $num1 * $num2 = ' . $num1 * $num2;
+            $result = "Результат $num1 * $num2 = " . $num1 * $num2;
             break;
         case '/':
             if ($num2 == 0) {
                 $result = 'На "0" делить нельзя';
                 return $result;
             }
-            $result = 'Результат $num1 / $num2 = ' . $num1 / $num2;
+            $result = "Результат $num1 / $num2 = " . $num1 / $num2;
             break;
     }
     return $result;
