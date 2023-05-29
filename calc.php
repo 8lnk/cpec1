@@ -6,7 +6,7 @@
         }
     ?>
 <!-- Область основного контента -->
-    <form action=''>
+    <form action="$_SERVER['Request_uri'];" method='POST'>
       <label>Число 1:</label>
       <br />
       <input name='num1' type='text' />
@@ -22,5 +22,6 @@
       <br />
       <input type='submit' value='Считать'>
     </form>
+    
    <?= calc($num1, $num2, $operator); ?>
     <!-- Область основного контента -->
